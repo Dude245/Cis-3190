@@ -351,26 +351,6 @@ begin
                     exit;
                 end if;
 
---              Get whole guess
-                Put_Line("Word:");
-                Put(word);
-                New_Line(2);
-                Put_Line("What is your word guess? ");
-                Get_Line( wordGuess, len );
-                compareGuess:=To_Unbounded_String(wordGuess);
-                compareGuess:=Trim(compareGuess,Ada.Strings.Both);
-
---              My own compare check for the guessed word and the selected word
-                for i in 1..realLen loop
-                    if(Element(compareGuess,i)/=Element(realWord,i)) then
-                        wordCheck:=1;
-                    end if;
-                end loop;
-
---              Additional check to end program
-                if(wordCheck=0) then
-                    dashCount:=0;
-                end if;
                 --End condition for no more "-"
                 if (dashCount=0) then
                     printHang(crapCount);
